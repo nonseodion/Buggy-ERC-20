@@ -36,6 +36,7 @@ contract Challenge03 {
         _mint(msg.sender, 1000000 * 10 ** 18);
     }
 
+    // Bug: Anyone can burn another addresse's balance
     function burn(address account, uint256 value) public {
         require(account != address(0), "Invalid burner");
         uint256 accountBalance = _balances[account];
