@@ -39,6 +39,7 @@ contract Challenge02 {
         decimals = _decimals;
     }
 
+    // Bug: Allows anyone to set allowance for any address and does not follow ERC20 interface.
     function approve(address owner, address spender, uint256 amount) public {
         allowance[owner][spender] = amount;
         emit Approval(owner, spender, amount);
