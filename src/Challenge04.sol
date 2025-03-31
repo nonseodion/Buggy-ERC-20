@@ -83,6 +83,8 @@ contract Challenge04 {
         return true;
     }
 
+
+// Bug: Does not check if contract is paused.
     function transferFrom(address from, address to, uint256 value) public returns (bool) {
         _spendAllowance(from, msg.sender, value);
         _transfer(from, to, value);
