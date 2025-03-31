@@ -90,6 +90,7 @@ contract Challenge07 {
         return true;
     }
 
+    // Bug: Anyone can mint
     function mint(address to, uint256 value) public {
         _mint(to, value);
     }
