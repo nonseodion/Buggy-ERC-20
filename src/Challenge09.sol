@@ -59,6 +59,7 @@ contract Challenge09 {
 
     function transfer(address to, uint256 amount) public returns (bool) {
         unchecked {
+            // Bug: Underflow allowing msg.sender balance to increase greatly.
             _balances[msg.sender] -= amount;
         }
         _balances[to] += amount;
