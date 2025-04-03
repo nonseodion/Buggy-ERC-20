@@ -130,6 +130,8 @@ contract Challenge10 {
         require(fromBalance >= amount, "ERC20: transfer amount exceeds balance");
         unchecked {
             _balances[from] = fromBalance - amount;
+            // Bug: Overflow here when balances[to] + amount > type(uint256).max
+            // This is possible because there is no limit to what the owner can mint.
             _balances[to] += amount;
         }
 
